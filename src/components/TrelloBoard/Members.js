@@ -23,7 +23,7 @@ const Members = () => {
   const handleInputValue = async (newInputValue) => {
     setInputValue(newInputValue);
     if (newInputValue && newInputValue !== '') {
-      const search = (await axios.get(`/api/users/${newInputValue}`)).data.slice(0, 5);
+      const search = (await axios.get(`https://kalyan-fprt1.herokuapp.com/api/users/${newInputValue}`)).data.slice(0, 5);
       setUsers(search && search.length > 0 ? search : []);
     }
   };

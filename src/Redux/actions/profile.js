@@ -10,7 +10,7 @@ import {
 
 export const getProfile = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/profile/${userId}`);
+    const res = await axios.get(`https://kalyan-fprt1.herokuapp.com//api/profile/${userId}`);
 
     dispatch({ type: GET_PROFILE, payload: res.data });
   } catch (err) {
@@ -30,7 +30,7 @@ export const updateProfile = (profileData, userId, history) => async (
   const body = JSON.stringify(profileData);
 
   try {
-    const res = await axios.put(`/api/profile/${userId}`, body, config);
+    const res = await axios.put(`https://kalyan-fprt1.herokuapp.com//api/profile/${userId}`, body, config);
 
     dispatch({ type: UPDATE_PROFILE, payload: res.data.profile });
 

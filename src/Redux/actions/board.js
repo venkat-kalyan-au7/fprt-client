@@ -35,7 +35,7 @@ export const getBoards = () => async (dispatch) => {
   try {
     dispatch({ type: CLEAR_BOARD });
 
-    const res = await axios.get('/api/boards');
+    const res = await axios.get('https://kalyan-fprt1.herokuapp.com/api/boards');
 
     dispatch({
       type: GET_BOARDS,
@@ -52,7 +52,7 @@ export const getBoards = () => async (dispatch) => {
 // Get board
 export const getBoard = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/boards/${id}`);
+    const res = await axios.get(`https://kalyan-fprt1.herokuapp.com/api/boards/${id}`);
 
     if (res) {
       axios.defaults.headers.common['boardId'] = id;
@@ -77,7 +77,7 @@ export const addBoard = (formData, history) => async (dispatch) => {
   try {
     const body = JSON.stringify(formData);
 
-    const res = await axios.post('/api/boards', body, config);
+    const res = await axios.post('https://kalyan-fprt1.herokuapp.com/api/boards', body, config);
 
     dispatch({
       type: ADD_BOARD,
@@ -98,7 +98,7 @@ export const addBoard = (formData, history) => async (dispatch) => {
 // Rename board
 export const renameBoard = (boardId, formData) => async (dispatch) => {
   try {
-    const res = await axios.patch(`/api/boards/rename/${boardId}`, formData, config);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/boards/rename/${boardId}`, formData, config);
 
     dispatch({
       type: RENAME_BOARD,
@@ -117,7 +117,7 @@ export const renameBoard = (boardId, formData) => async (dispatch) => {
 // Get list
 export const getList = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/lists/${id}`);
+    const res = await axios.get(`https://kalyan-fprt1.herokuapp.com/api/lists/${id}`);
 
     dispatch({
       type: GET_LIST,
@@ -136,7 +136,7 @@ export const addList = (formData) => async (dispatch) => {
   try {
     const body = JSON.stringify(formData);
 
-    const res = await axios.post('/api/lists', body, config);
+    const res = await axios.post('https://kalyan-fprt1.herokuapp.com/api/lists', body, config);
 
     dispatch({
       type: ADD_LIST,
@@ -155,7 +155,7 @@ export const addList = (formData) => async (dispatch) => {
 // Rename list
 export const renameList = (listId, formData) => async (dispatch) => {
   try {
-    const res = await axios.patch(`/api/lists/rename/${listId}`, formData, config);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/lists/rename/${listId}`, formData, config);
 
     dispatch({
       type: RENAME_LIST,
@@ -172,7 +172,7 @@ export const renameList = (listId, formData) => async (dispatch) => {
 // Archive/Unarchive list
 export const archiveList = (listId, archive) => async (dispatch) => {
   try {
-    const res = await axios.patch(`/api/lists/archive/${archive}/${listId}`);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/lists/archive/${archive}/${listId}`);
 
     dispatch({
       type: ARCHIVE_LIST,
@@ -191,7 +191,7 @@ export const archiveList = (listId, archive) => async (dispatch) => {
 // Get card
 export const getCard = (id) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/cards/${id}`);
+    const res = await axios.get(`https://kalyan-fprt1.herokuapp.com/api/cards/${id}`);
 
     dispatch({
       type: GET_CARD,
@@ -210,7 +210,7 @@ export const addCard = (formData) => async (dispatch) => {
   try {
     const body = JSON.stringify(formData);
 
-    const res = await axios.post('/api/cards', body, config);
+    const res = await axios.post('https://kalyan-fprt1.herokuapp.com/api/cards', body, config);
 
     dispatch({
       type: ADD_CARD,
@@ -229,7 +229,7 @@ export const addCard = (formData) => async (dispatch) => {
 // Edit card
 export const editCard = (cardId, formData) => async (dispatch) => {
   try {
-    const res = await axios.patch(`/api/cards/edit/${cardId}`, formData, config);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/cards/edit/${cardId}`, formData, config);
 
     dispatch({
       type: EDIT_CARD,
@@ -248,7 +248,7 @@ export const moveCard = (cardId, formData) => async (dispatch) => {
   try {
     const body = JSON.stringify(formData);
 
-    const res = await axios.patch(`/api/cards/move/${cardId}`, body, config);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/cards/move/${cardId}`, body, config);
 
     dispatch({
       type: MOVE_CARD,
@@ -267,7 +267,7 @@ export const moveCard = (cardId, formData) => async (dispatch) => {
 // Archive/Unarchive card
 export const archiveCard = (cardId, archive) => async (dispatch) => {
   try {
-    const res = await axios.patch(`/api/cards/archive/${archive}/${cardId}`);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com/api/cards/archive/${archive}/${cardId}`);
 
     dispatch({
       type: ARCHIVE_CARD,
@@ -286,7 +286,7 @@ export const archiveCard = (cardId, archive) => async (dispatch) => {
 // Delete card
 export const deleteCard = (listId, cardId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/cards/${listId}/${cardId}`);
+    const res = await axios.delete(`https://kalyan-fprt1.herokuapp.com/api/cards/${listId}/${cardId}`);
 
     dispatch({
       type: DELETE_CARD,
@@ -307,7 +307,7 @@ export const getActivity = () => async (dispatch) => {
   try {
     const boardId = axios.defaults.headers.common['boardId'];
 
-    const res = await axios.get(`/api/boards/activity/${boardId}`);
+    const res = await axios.get(`https://kalyan-fprt1.herokuapp.com/api/boards/activity/${boardId}`);
 
     dispatch({
       type: GET_ACTIVITY,
@@ -324,7 +324,7 @@ export const getActivity = () => async (dispatch) => {
 // Add member
 export const addMember = (userId) => async (dispatch) => {
   try {
-    const res = await axios.put(`/api/boards/addMember/${userId}`);
+    const res = await axios.put(`https://kalyan-fprt1.herokuapp.com//api/boards/addMember/${userId}`);
 
     dispatch({
       type: ADD_MEMBER,
@@ -345,7 +345,7 @@ export const moveList = (listId, formData) => async (dispatch) => {
   try {
     const body = JSON.stringify(formData);
 
-    const res = await axios.patch(`/api/lists/move/${listId}`, body, config);
+    const res = await axios.patch(`https://kalyan-fprt1.herokuapp.com//api/lists/move/${listId}`, body, config);
 
     dispatch({
       type: MOVE_LIST,
@@ -364,7 +364,7 @@ export const addCardMember = (formData) => async (dispatch) => {
   try {
     const { add, cardId, userId } = formData;
 
-    const res = await axios.put(`/api/cards/addMember/${add}/${cardId}/${userId}`);
+    const res = await axios.put(`https://kalyan-fprt1.herokuapp.com//api/cards/addMember/${add}/${cardId}/${userId}`);
 
     dispatch({
       type: ADD_CARD_MEMBER,
